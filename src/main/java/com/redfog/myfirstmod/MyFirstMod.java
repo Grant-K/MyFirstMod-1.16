@@ -1,9 +1,7 @@
 package com.redfog.myfirstmod;
 
-import com.redfog.myfirstmod.blocks.FirstBlock;
+
 import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("assets/myfirstmod")
+@Mod("myfirstmod")
 public class MyFirstMod {
 
 
@@ -32,13 +30,7 @@ public class MyFirstMod {
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-            event.getRegistry().register(new FirstBlock());
-        }
-
-        @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
-            event.getRegistry().register(new BlockItem(ModBlocks.FIRSTBLOCK, new Item.Properties()).setRegistryName("firstblock"));
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
         }
     }
 }
